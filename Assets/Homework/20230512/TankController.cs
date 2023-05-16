@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private float repeatTime;
+    [SerializeField] private CinemachineVirtualCamera zoomCam;
 
     private void Awake()
     {
@@ -43,7 +45,19 @@ public class TankController : MonoBehaviour
         moveDir.x = value.Get<Vector2>().x;
         moveDir.z = value.Get<Vector2>().y;
     }
-
+    private void OnZoom(InputValue value)
+    {
+        if(zoomCam.Priority == 5)
+        {
+            Debug.Log("focused");
+            zoomCam.Priority = 100;
+        }
+        else
+        {
+            Debug.Log("unfocused");
+            zoomCam.Priority = 5;
+        }
+    }
     private void OnJump(InputValue value)
     {
         Jump();

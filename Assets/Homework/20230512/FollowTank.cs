@@ -1,9 +1,12 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FollowTank : MonoBehaviour
 {
+    /*
     public GameObject player;
     public float xmove = 0;  // X축 누적 이동량
     public float ymove = 0;  // Y축 누적 이동량
@@ -22,4 +25,24 @@ public class FollowTank : MonoBehaviour
         Vector3 reverseDistance = new Vector3(0.0f, -3.0f, distance); // 카메라가 바라보는 앞방향은 Z 축입니다. 이동량에 따른 Z 축방향의 벡터를 구합니다.
         transform.position = player.transform.position - transform.rotation * reverseDistance; // 플레이어의 위치에서 카메라가 바라보는 방향에 벡터값을 적용한 상대 좌표를 차감합니다.
     }
+    */
+    [SerializeField]
+    private CinemachineVirtualCamera playerCam;
+    [SerializeField]
+    private CinemachineVirtualCamera zoomCam;
+
+    private void OnSetPriority1(InputValue value)
+    {
+        Debug.Log("Camera1 Focused");
+        playerCam.Priority = 20;
+        zoomCam.Priority = 0;
+    }
+
+    private void OnSetPriority2(InputValue value)
+    {
+        Debug.Log("Camera2 Focused");
+        playerCam.Priority = 0;
+        zoomCam.Priority = 20;
+    }
+
 }
