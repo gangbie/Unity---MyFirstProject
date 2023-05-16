@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6247004556509736240}
   - component: {fileID: 6247004556513127786}
   - component: {fileID: 6247004556512161706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6247004556509736244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 6247004555269105275}
   - component: {fileID: 6247004555269105273}
   - component: {fileID: 6247004555269105221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,6 +229,9 @@ MonoBehaviour:
   moveSpeed: 1
   rotateSpeed: 50
   jumpPower: 2
+  bulletPrefab: {fileID: 0}
+  bulletPoint: {fileID: 0}
+  repeatTime: 0
 --- !u!1 &6247004556509966554
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +243,7 @@ GameObject:
   - component: {fileID: 6247004556509736250}
   - component: {fileID: 6247004556513127784}
   - component: {fileID: 6247004556512161704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +328,7 @@ GameObject:
   - component: {fileID: 6247004556509736252}
   - component: {fileID: 6247004556513127790}
   - component: {fileID: 6247004556512161710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +413,7 @@ GameObject:
   - component: {fileID: 6247004556513127776}
   - component: {fileID: 6247004556512161696}
   - component: {fileID: 6247004556514009195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
