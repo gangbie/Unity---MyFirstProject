@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private float repeatTime;
+
+    private Animator animator;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -61,6 +64,12 @@ public class PlayerController : MonoBehaviour
     {
         Jump();
     }
+    public void Fire()
+    {
+        //bulletRoutine = StartCoroutine(BulletMakeRoutine());
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+        animator.SetTrigger("Fire");
+    }
 
     private Coroutine bulletRoutine;
     private void OnFire(InputValue value)
@@ -69,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (value.isPressed)
         {
             bulletRoutine = StartCoroutine(BulletMakeRoutine());
+            animator.SetTrigger("Fire");
         }
         else
         {
