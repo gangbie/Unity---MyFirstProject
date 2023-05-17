@@ -18,10 +18,12 @@ public class TankController : MonoBehaviour
     [SerializeField] private float repeatTime;
     [SerializeField] private CinemachineVirtualCamera zoomCam;
 
+    private Animator animator;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         gameObject.name = "GreenTank";
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -62,6 +64,12 @@ public class TankController : MonoBehaviour
     {
         Jump();
     }
+    public void Fire()
+    {
+        //bulletRoutine = StartCoroutine(BulletMakeRoutine());
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+        animator.SetTrigger("Fire");
+    }
 
     private Coroutine bulletRoutine;
     private void OnFire(InputValue value)
@@ -69,6 +77,7 @@ public class TankController : MonoBehaviour
         if (value.isPressed)
         {
             bulletRoutine = StartCoroutine(BulletMakeRoutine());
+            animator.SetTrigger("Fire");
         }
         else
         {
