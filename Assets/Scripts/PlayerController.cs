@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
         //bulletRoutine = StartCoroutine(BulletMakeRoutine());
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
         animator.SetTrigger("Fire");
+
+        GameManager.Data.AddShootCount(1);
     }
 
     private Coroutine bulletRoutine;
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             bulletRoutine = StartCoroutine(BulletMakeRoutine());
             animator.SetTrigger("Fire");
+            
         }
         else
         {
@@ -90,6 +93,7 @@ public class PlayerController : MonoBehaviour
         while (true)
         {
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            GameManager.Data.AddShootCount(1);
             yield return new WaitForSeconds(repeatTime);
         }
     }
